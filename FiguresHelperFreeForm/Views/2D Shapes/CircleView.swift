@@ -36,8 +36,18 @@ struct CircleView: View {
         
     }
     
-    
+    //Attempts to calculate the area, if it can't... return nil
     var area: Double {
+        
+        //Is the input actually a double, or... is it double? (might be nil)
+        
+        guard let radius = radius
+        else {
+            //We didn't have a valild radius
+            //We can't calculate the area...
+            return nil
+        }
+
         return Double.pi * radius * radius
     }
     
