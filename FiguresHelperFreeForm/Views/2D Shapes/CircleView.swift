@@ -13,11 +13,30 @@ struct CircleView: View {
     //Whatever the user adds to the text field
     @State var providedRadius = ""
     
-    
-    
-    @State var radius = 10.0
-    
     // MARK: Computed properties
+    // Checks the input given by the user
+    //If possible, return a Double
+    //Otherwise (bad input) return nil
+    var radius: Double? {
+        
+        //Texts of the provoded input
+        //1. Ensure that we can simpy change the inout into a Double
+        //2. Ensure that the value as a double is more than 0
+        //With a guard statement, we list the things we wish to be true...
+        //and provide an action to carry out when those conditions are met
+        guard let radius = Double(providedRadius),
+              radius > 0
+        else {
+            //When the tests are failes, we do not have a valid radius
+            return nil
+        }
+ 
+        //If we get here, we know that the radius is good
+        return radius
+        
+    }
+    
+    
     var area: Double {
         return Double.pi * radius * radius
     }
