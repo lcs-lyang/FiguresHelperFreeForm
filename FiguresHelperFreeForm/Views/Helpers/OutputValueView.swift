@@ -20,7 +20,7 @@ struct OutputValueView: View {
         if let value = value {
             
             // We have  valid value to show
-            let formattedValue = String(format: String(format: "%.1f", value)
+            let formattedValue = String(format: "%.1f", value)
                                         
         //Return the output to show
         return "\(formattedValue) \(suffix)"

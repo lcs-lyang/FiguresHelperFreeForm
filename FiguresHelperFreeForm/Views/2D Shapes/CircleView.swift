@@ -24,6 +24,7 @@ struct CircleView: View {
         //2. Ensure that the value as a double is more than 0
         //With a guard statement, we list the things we wish to be true...
         //and provide an action to carry out when those conditions are met
+        
         guard let radius = Double(providedRadius),
               radius > 0
         else {
@@ -37,7 +38,7 @@ struct CircleView: View {
     }
     
     //Attempts to calculate the area, if it can't... return nil
-    var area: Double {
+    var area: Double? {
         
         //Is the input actually a double, or... is it double? (might be nil)
         
@@ -67,7 +68,7 @@ struct CircleView: View {
                           prompt: Text("Numeric value greater than 0"))
                 //Ternary conditional operator: "one line if statement"
                 //Condition
-                    .foregroundColor(radius == nil? Color.red : Color.primary)
+                    .foregroundColor(radius == nil ? Color.red : Color.primary)
                 
                 SectionLabelView(text: "Area", variable: "")
                 
